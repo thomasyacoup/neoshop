@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import Inter from "../assets/fonts/Inter-VariableFont_opsz,wght.ttf"
+import ItalicInter from "../assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf"
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -7,6 +8,13 @@ const GlobalStyles = createGlobalStyle`
     src: url(${Inter}) format("truetype");
     font-weight: 100 900;
     font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Inter";
+    src: url(${ItalicInter}) format("truetype");
+    font-weight: 100 900;
+    font-style: italic;
   }
 
   * {
