@@ -1,6 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 import styled from "styled-components";
-import { Container } from "../Components/Container.styled";
+import { Container } from "../components/Container.styled";
 import media from "../themes/media";
 
 const Heading = styled.h1`

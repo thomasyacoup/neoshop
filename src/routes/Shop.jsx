@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useOutletContext, useParams } from "react-router-dom";
-import { Container } from "../Components/Container.styled";
-import Product from "../Components/Product";
+import { Container } from "../components/Container.styled";
+import Product from "../components/Product";
 import useProducts from "../hooks/useProducts";
 
 const Heading = styled.h1`
