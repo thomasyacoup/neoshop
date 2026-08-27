@@ -1,20 +1,12 @@
 import { createGlobalStyle } from "styled-components";
-import RobotoRegular from "../assets/fonts/Roboto-VariableFont_wdth,wght.ttf";
-import RobotoItalic from "../assets/fonts/Roboto-Italic-VariableFont_wdth,wght.ttf";
+import Inter from "../assets/fonts/Inter-VariableFont_opsz,wght.ttf"
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
-    font-family: "Roboto";
-    src: url(${RobotoRegular}) format("truetype");
+    font-family: "Inter";
+    src: url(${Inter}) format("truetype");
     font-weight: 100 900;
     font-style: normal;
-  }
-
-  @font-face {
-    font-family: "Roboto";
-    src: url(${RobotoItalic}) format("truetype");
-    font-weight: 100 900;
-    font-style: italic;
   }
 
   * {
@@ -24,11 +16,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-background: linear-gradient(-135deg, #ffffff, #f0f6ff, #339af0);
-
-    position: relative;
-    font-family: "Roboto", sans-serif;
-    min-height: 100vh;
+    background: ${props => props.theme.colors.bg};
+    font-family: "Inter", sans-serif;
   }
 `;
 
