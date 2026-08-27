@@ -26,19 +26,7 @@ const routes = createBrowserRouter([
         element: <Cart />,
       },
     ],
-  },
-  // {
-  //   path: "/shop",
-  //   element: <Shop />,
-  // },
-  // {
-  //   path: "/shop/:filter",
-  //   element: <Shop />,
-  // },
-  // {
-  //   path: "/Cart",
-  //   element: <Cart />,
-  // },
+  }
 ]);
 
 export default routes;
