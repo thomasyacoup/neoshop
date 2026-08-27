@@ -21,9 +21,11 @@ const StyledNavLink = styled(Link)`
   text-transform: uppercase;
   text-decoration: none;
   transition: 100ms;
+  text-underline-offset: 5px;
 
   &:hover, &.active {
     color: color-mix(in oklab, ${({ theme }) => theme.colors.primary}, black 30%) !important;
+    text-decoration: underline 2px;
   }
   
   &:visited {
@@ -45,13 +47,13 @@ const StyledCartLink = styled(StyledNavLink)`
   &::after {
     content: "${props => props.itemsLength}";
 
-    color: ${({ theme }) => theme.colors.onPrimary};;
-    background-color: ${({ theme }) => theme.colors.primary};;
+    color: ${({ theme }) => theme.colors.onAccent};;
+    background-color: ${({ theme }) => theme.colors.accent};;
     font-size: ${({ theme }) => theme.fonts.size.sm};;
     font-family: monospace;
     
     padding: 2px;
-    line-height: 90%;
+    line-height: 80%;
     border: 2px solid ${({ theme }) => theme.colors.border};
 
     position: absolute;
