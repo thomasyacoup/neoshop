@@ -33,9 +33,9 @@ const StyledNavLink = styled(Link)`
   }
 `
 
-function NavLink({children, to}) {
+function NavLink({children, to, onClick}) {
   return (
-    <StyledNavLink to={to}>
+    <StyledNavLink to={to} onClick={onClick}>
       {children}
     </StyledNavLink>
   )
