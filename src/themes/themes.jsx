@@ -59,6 +59,8 @@ const theme = {
       md: "16px",
       lg: "20px",
       xl: "28px",
+      xxl: "36px",
+      xxxl: "56px",
     },
     weight: {
       regular: 400,
