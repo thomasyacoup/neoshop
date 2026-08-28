@@ -17,14 +17,16 @@ const GlobalStyles = createGlobalStyle`
     font-style: italic;
   }
 
-  * {
+  *, *::after, *::before {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
 
   body {
+    position: relative;
     background: ${props => props.theme.colors.bg};
+    color: ${({ theme }) => theme.colors.foreground};;
     font-family: "Inter", sans-serif;
   }
 `;
