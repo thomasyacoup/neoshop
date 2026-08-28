@@ -3,7 +3,7 @@ const theme = {
   // so there's no need for radii object or variable
   
   colors: {
-    bg: "#ACA89B",
+    bg: "#FEF9E7",
     secondaryBg: "#1D1C11",
     surface: "#FFFFFF",
     
@@ -36,7 +36,7 @@ const theme = {
     xxl: "48px",
   },
 
-  breakpoints: {
+  media: {
     mobile: "576px",
     tablet: "768px",
     laptop: "992px",
@@ -54,6 +54,7 @@ const theme = {
     // All fonts on the project will be snas
     
     size: {
+      xs: "10px",
       sm: "14px",
       md: "16px",
       lg: "20px",
@@ -63,6 +64,7 @@ const theme = {
       regular: 400,
       medium: 500,
       bold: 700,
+      black: 900,
     },
   },
 };
