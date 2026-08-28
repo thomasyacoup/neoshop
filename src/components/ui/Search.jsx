@@ -3,13 +3,9 @@ import styled from "styled-components";
 const StyledSearchBar = styled.div`
   border: 3px solid ${({ theme }) => theme.colors.border};
   box-shadow: ${({ theme }) => theme.shadow.md} ${({ theme }) => theme.colors.shadow};
+  width: fit-content;
 
-  display: none;
-
-  @media (min-width: ${({ theme }) => theme.media.tablet}) {
-    display: flex;
-  }
-  
+  display: flex;
 `
 
 const SearchInput = styled.input.attrs({type: "text"})`
