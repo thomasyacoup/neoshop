@@ -2,6 +2,10 @@
 
 A small front-end showcase project — not a real product, just a playground to practice turning a design into a working React app.
 
+![demo-1](/public/demo/demo-1.png)
+![demo-2](/public/demo/demo-2.png)
+![demo-3](/public/demo/demo-3.png)
+
 ## Tech Stack
 
 - **React** (with React Router for routing)
