@@ -45,7 +45,7 @@ const StyledCartLink = styled(StyledNavLink)`
   position: relative;
 
   &::after {
-    content: "${props => props.itemsLength}";
+    content: "${props => props.$itemsLength}";
 
     color: ${({ theme }) => theme.colors.onAccent};;
     background-color: ${({ theme }) => theme.colors.accent};;
@@ -64,7 +64,7 @@ const StyledCartLink = styled(StyledNavLink)`
 
 function CartLink({children, itemsLength, to}) {
   return (
-    <StyledCartLink itemsLength={itemsLength} to={to}>
+    <StyledCartLink $itemsLength={itemsLength} to={to}>
       {children}
     </StyledCartLink>
   )  
