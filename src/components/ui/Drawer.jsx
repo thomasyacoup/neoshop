@@ -12,7 +12,7 @@ const StyledDrawer = styled.aside`
   border-left: 2px solid ${({ theme }) => theme.colors.border};
   background-color: ${({ theme }) => theme.colors.bg};
   
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   z-index: 99;
@@ -33,11 +33,12 @@ function Drawer({children, active}) {
 const DrawerBackDrop = styled.div`
   content: "";
   display: ${props => props.display};
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 99;
   backdrop-filter: blur(2px);
 `
 
