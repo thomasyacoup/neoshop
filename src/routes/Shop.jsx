@@ -5,6 +5,7 @@ import { Container } from "../components/ui/Container";
 import Filters from "../components/ui/Filters";
 import { useState } from "react";
 import Products from "../components/ui/Products";
+import Pagintaion from "../components/ui/Pagination";
 
 const ShopContainer = styled(Container)`
   padding-top: ${({ theme }) => theme.spacing.xxl};
@@ -68,6 +69,7 @@ function Shop() {
         <Filters tabs={filters} activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
         <Products products={data} addItemToCart={addItemToCart}/>
       </ProductsWrapper>
+      <Pagintaion />
     </ShopContainer>
   );
 }
