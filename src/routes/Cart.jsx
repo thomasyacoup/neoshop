@@ -1,81 +1,97 @@
 import { useOutletContext } from "react-router-dom";
 import styled from "styled-components";
-import { Container } from "../components/Container.styled";
-import media from "../themes/media";
+import { Container } from "../components/ui/Container";
+import Button from "../components/ui/Button"
 
-const Heading = styled.h1`
-  text-align: center;
-  margin: ${({ theme }) => theme.spacing.lg} 0;
-  text-align: left;
-  font-size: ${({ theme }) => theme.spacing.xxl};
-  font-family: serif;
-
-  ${media.mobile} {
-    font-size: ${({ theme }) => theme.spacing.xl};
-  }
-`;
-
-const StyledCart = styled.div`
-  margin: 50px auto;
+const CartContainer = styled(Container)`
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+const CheckOutCard = styled.div`
+  padding: ${({ theme }) => theme.spacing.lg};
   display: flex;
   flex-direction: column;
-  border-radius: ${({ theme }) => theme.spacing.sm};
-  padding: ${({ theme }) => theme.spacing.xxl};
-  gap: ${({ theme }) => theme.spacing.lg};
-  transition: 300ms;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  gap: ${({ theme }) => theme.spacing.sm};
 
-  ${media.mobile} {
-    padding: ${({ theme }) => theme.spacing.lg};
-  }
-`;
+  max-width: 500px;
+  width: 100%;
+  background-color: ${({ theme }) => theme.colors.primary};
 
-const Orders = styled.div`
+  border: 3px solid ${({ theme }) => theme.colors.border};
+  box-shadow: ${({ theme }) => theme.shadow.lg} ${({ theme }) => theme.colors.shadow};
+`
+
+const StyeldSummary = styled.h2`
+  font-weight: ${({ theme }) => theme.fonts.weight.bold};
+`
+
+const StyledHr = styled.hr`
+  border: 1px solid ${({ theme }) => theme.colors.border};
+`
+const SummaryInfo = styled.div`
   display: flex;
-  flex-direction: column;
-`;
+  justify-content: space-between;
+  font-weight: ${({ theme }) => theme.fonts.weight.medium};
+`
+const DiscountInfo = styled(SummaryInfo)`
+  color: ${({ theme }) => theme.colors.error};;
+`
+const TotalInfo = styled(SummaryInfo)`
+  font-weight: ${({ theme }) => theme.fonts.weight.bold};
+  font-size: ${({ theme }) => theme.fonts.size.lg};
+`
 
-const Total = styled.div`
-  text-align: right;
-  font-family: serif;
-`;
-
-const Order = styled.div`
-  margin: 20px 0;
-  font-weight: 800;
-  font-size: large;
-`;
-
-const Hr = styled.hr`
-  background-color: gray;
-  height: 3px;
-`;
+const Space = styled.div`
+  margin: ${({ theme }) => theme.spacing.md} 0;
+`
+const Ad = styled.div`
+  align-self: center;
+  padding: ${({ theme }) => theme.spacing.sm};
+  border: 3px solid ${({ theme }) => theme.colors.border};
+  background-color: ${({ theme }) => theme.colors.neutral};
+  width: fit-content;
+  font-size: ${({ theme }) => theme.fonts.size.xs};;
+  transform: rotate(-8deg);
+`
 
 function Cart() {
   const { cartProducts } = useOutletContext();
 
   return (
-    <section>
-      <Container>
-        <StyledCart>
-          <Heading>Your Cart</Heading>
-          <Orders>
-            {cartProducts.map((item) => {
-              return (
-                <>
-                  <Order>{item.title}</Order>
-                  <Hr />
-                </>
-              );
-            })}
-          </Orders>
-          <Total>
-            <h2>{cartProducts.reduce((sum, item) => sum + item.price, 0)}$</h2>
-          </Total>
-        </StyledCart>
-      </Container>
-    </section>
+    <CartContainer>
+      <CheckOutCard>
+        <StyeldSummary>Summary</StyeldSummary>
+        <StyledHr />
+        <Space />
+        <SummaryInfo>
+          <span>Items({cartProducts.length}):</span>
+          <span>${cartProducts.reduce((prev, cur) => prev + cur.price, 0)}</span>
+        </SummaryInfo>
+        <SummaryInfo>
+          <span>Shipping:</span>
+          <span>$20</span>
+        </SummaryInfo>
+        <DiscountInfo>
+          <span>Discount:</span>
+          <span>$15</span>
+        </DiscountInfo>
+        <Space />
+        <StyledHr />
+        <TotalInfo>
+          <span>Total:</span>
+          <span>${cartProducts.reduce((prev, cur) => prev + cur.price, 0) + 20 - 15}</span>
+        </TotalInfo>
+        <Space />
+        <Button size="lg" variant="secondary">
+          Check Out
+        </Button>
+        <Space />
+        <Ad>Free shipping over $150!</Ad>
+        <Space />
+      </CheckOutCard>
+    </CartContainer>
   );
 }
 
