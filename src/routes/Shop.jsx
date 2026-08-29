@@ -1,71 +1,56 @@
 import styled from "styled-components";
 import { useOutletContext, useParams } from "react-router-dom";
-import { Container } from "../components/Container.styled";
-import Product from "../components/Product";
 import useProducts from "../hooks/useProducts";
+import { Container } from "../components/ui/Container";
+
+// Header
+// Pargraph
+// Filters
+// Products 
+// Pagination
+
+const ShopContainer = styled(Container)`
+  padding-top: ${({ theme }) => theme.spacing.xxl};
+  padding-bottom: ${({ theme }) => theme.spacing.xxl};
+`
+
+const HeaderWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.md};
+`
 
 const Heading = styled.h1`
-  text-align: center;
-  margin: ${({ theme }) => theme.spacing.xxl} 0;
-  font-size: ${({ theme }) => theme.spacing.xxl};
-  font-family: serif;
+  font-size: ${({ theme }) => theme.fonts.size.xl};
+  font-weight: ${({ theme }) => theme.fonts.weight.black};
+  text-transform: uppercase;
+  text-decoration: underline solid 5px ${({ theme }) => theme.colors.accent};
+  text-underline-offset: 8px;
 `;
 
-const Products = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: ${({ theme }) => theme.spacing.lg};
-`;
+const Pargraph = styled.p`
+  color: ${({ theme }) => theme.colors.textMuted};
+`
 
 function Shop() {
   const { data, loading, err } = useProducts();
   const { cartProducts, setCartProducts } = useOutletContext();
-  let products;
 
   const categories = ["men", "women", "jeweley", "electronics"];
-
-  const { filter } = useParams();
-
-  if (!filter) {
-    products = data;
-  } else if (categories.includes(filter)) {
-    const category =
-      filter == "men"
-        ? "men's clothing"
-        : filter == "women"
-        ? "women's clothing"
-        : filter;
-
-    products = data.filter((item) => item.category == category);
-  } else {
-    products = data.filter((item) =>
-      item.title.toLowerCase().includes(filter.toLocaleLowerCase())
-    );
-  }
-
-  const handleAdding = (item) => {
-    const newArray = cartProducts;
-    newArray.push(item);
-    setCartProducts(newArray);
-  };
 
   if (loading) return "loading";
   if (err) return "err";
   return (
-    <section>
-      <Container>
-        <Heading>Our Products</Heading>
-        <Products>
-          {products.map((product) => (
-            <Product
-              item={product}
-              key={product.id}
-              handleAdding={handleAdding}
-            />
-          ))}
-        </Products>
-      </Container>
-    </section>
+    <ShopContainer>
+      <HeaderWrapper>
+        <Heading>
+          ALL Products
+        </Heading>
+        <Pargraph>
+          Browse our unapologetically raw collection. High energy, zero compromises.
+        </Pargraph>
+      </HeaderWrapper>
+    </ShopContainer>
   );
 }
 
