@@ -1,17 +1,17 @@
 import styled from "styled-components";
-import { useOutletContext, useParams } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 import useProducts from "../hooks/useProducts";
 import { Container } from "../components/ui/Container";
-
-// Header
-// Pargraph
-// Filters
-// Products 
-// Pagination
+import Filters from "../components/ui/Filters";
+import { useState } from "react";
+import Products from "../components/ui/Products";
 
 const ShopContainer = styled(Container)`
   padding-top: ${({ theme }) => theme.spacing.xxl};
   padding-bottom: ${({ theme }) => theme.spacing.xxl};
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.xl};
 `
 
 const HeaderWrapper = styled.div`
@@ -32,11 +32,22 @@ const Pargraph = styled.p`
   color: ${({ theme }) => theme.colors.textMuted};
 `
 
+const ProductsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.md};
+`
+
+
 function Shop() {
-  const { data, loading, err } = useProducts();
   const { cartProducts, setCartProducts } = useOutletContext();
 
-  const categories = ["men", "women", "jeweley", "electronics"];
+  const [activeFilter, setActiveFilter] = useState("All")
+  const filters = ["All", "Men", "Women", "Electronics", "Arts"];
+
+  const { data, loading, err } = useProducts();
+
+  const addItemToCart = (item) => setCartProducts([...cartProducts, item])
 
   if (loading) return "loading";
   if (err) return "err";
@@ -50,6 +61,10 @@ function Shop() {
           Browse our unapologetically raw collection. High energy, zero compromises.
         </Pargraph>
       </HeaderWrapper>
+      <ProductsWrapper>
+        <Filters tabs={filters} activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
+        <Products products={data} addItemToCart={addItemToCart}/>
+      </ProductsWrapper>
     </ShopContainer>
   );
 }

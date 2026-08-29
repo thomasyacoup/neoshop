@@ -12,14 +12,12 @@ const StyledProduct = styled.div`
   height: 500px;
   background-color: ${({ theme }) => theme.colors.surface};;
 `
-
 const StyledImg = styled.img`
   max-width: 100%;
   height: 50%;
   object-fit: contain;
   border-bottom: 2px solid ${({ theme }) => theme.colors.border};
 ` 
-
 const ProductInfo = styled.div`
   height: 50%;
   display: flex;
@@ -27,7 +25,6 @@ const ProductInfo = styled.div`
   padding: ${({ theme }) => theme.spacing.md};
   gap: ${({ theme }) => theme.spacing.lg};
 `
-
 const InfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -45,7 +42,6 @@ const ProductTitle = styled.h3`
   -webkit-box-orient: vertical;
   overflow: hidden; 
 `
-
 const ProductPrice = styled.span`
   color: ${({ theme }) => theme.colors.accent};
   font-size: ${({ theme }) => theme.fonts.size.lg};
@@ -75,7 +71,6 @@ const QuantityChange = styled.button`
   }
   
 `
-
 const Quantity = styled.div`
   flex-grow: 1;
   text-align: center;
@@ -93,7 +88,7 @@ function Product({ item, addToCart }) {
     setQuantity(quantity - 1)
   }
   const handleAddToCart = () => {
-    addToCart()
+    addToCart(item)
     setQuantity(1)
   }
   
@@ -140,12 +135,12 @@ const StyledProducts = styled.div`
   }
 `
 
-function Products({products, setCart, cart}) {
+function Products({products, addItemToCart}) {
   return (
     <StyledProducts>
       {
         products.map(product => (
-          <Product key={product.id} item={product} addToCart={() => setCart([...cart, product])} />
+          <Product key={product.id} item={product} addToCart={addItemToCart}/>
         ))
       }
     </StyledProducts>
