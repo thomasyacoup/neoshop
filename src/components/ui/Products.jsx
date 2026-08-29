@@ -145,7 +145,7 @@ function Products({products, setCart, cart}) {
     <StyledProducts>
       {
         products.map(product => (
-          <Product item={product} addToCart={() => setCart([...cart, product])} />
+          <Product key={product.id} item={product} addToCart={() => setCart([...cart, product])} />
         ))
       }
     </StyledProducts>

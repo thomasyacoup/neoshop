@@ -19,8 +19,8 @@ function Filters({tabs, activeFilter, setActiveFilter}) {
   return (
     <StyledFilters>
       {
-        tabs.map(tab => (
-          <Filter isActive={tab == activeFilter} onClick={() => setActiveFilter(tab)}>
+        tabs.map((tab, index) => (
+          <Filter key={index} isActive={tab == activeFilter} onClick={() => setActiveFilter(tab)}>
             {tab}
           </Filter>
         ))
