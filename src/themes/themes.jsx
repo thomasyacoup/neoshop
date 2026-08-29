@@ -13,7 +13,7 @@ const theme = {
     primary: "#F4D03F",
     onPrimary: "#000000",
     secondary: "#3498DB",
-    onSecondary: "#000000",
+    onSecondary: "#FFFFFF",
     accent: "#FF007F",
     onAccent: "#ffffff",
     neutral: "#FEF9E7",
