@@ -18,10 +18,6 @@ const routes = createBrowserRouter([
         element: <Shop />,
       },
       {
-        path: "/shop/:filter",
-        element: <Shop />,
-      },
-      {
         path: "/cart",
         element: <Cart />,
       },
