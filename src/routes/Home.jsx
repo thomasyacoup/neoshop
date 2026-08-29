@@ -6,8 +6,13 @@ import Carousel from "../components/ui/Carousel";
 
 const HomeContainer = styled(Container)`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: ${({ theme }) => theme.spacing.lg};
+  @media (min-width: ${({ theme }) => theme.media.tablet}) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
 `
 
 const TextWrapper = styled.div`

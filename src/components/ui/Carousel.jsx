@@ -10,12 +10,14 @@ const CarouselContainer = styled.div`
 const CarouselImg = styled.img`
   position: absolute;
   transition: 200ms;
-  max-width: 500px;
-  max-height: 500px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   opacity: ${props => (props.active ? "100%" : "0%")};
   z-index: 100;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `
 
 function Carousel({n, imgs}) {
