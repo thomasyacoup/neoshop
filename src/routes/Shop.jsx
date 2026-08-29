@@ -47,8 +47,11 @@ function Shop() {
 
   const { data, loading, err } = useProducts();
 
-  const addItemToCart = (item) => setCartProducts([...cartProducts, item])
-
+  const addItemToCart = (item, n) => {
+    const itemList = []
+    for (let i = 0; i < n; i++) itemList.push(item);
+    setCartProducts([...cartProducts, ...itemList])
+  }
   if (loading) return "loading";
   if (err) return "err";
   return (

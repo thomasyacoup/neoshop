@@ -88,7 +88,7 @@ function Product({ item, addToCart }) {
     setQuantity(quantity - 1)
   }
   const handleAddToCart = () => {
-    addToCart(item)
+    addToCart(item, quantity)
     setQuantity(1)
   }
   
