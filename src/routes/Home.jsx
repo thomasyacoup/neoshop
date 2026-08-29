@@ -3,6 +3,9 @@ import { Container } from "../components/ui/Container";
 import Button from "../components/ui/Button";
 import { useNavigate } from "react-router-dom";
 import Carousel from "../components/ui/Carousel";
+import hero1 from "../assets/hero/hero-1.png"
+import hero2 from "../assets/hero/hero-2.png"
+import hero3 from "../assets/hero/hero-3.png"
 
 const HomeContainer = styled(Container)`
   display: grid;
@@ -42,7 +45,7 @@ const CarouselWrapper = styled.div`
   
 function Home() {
   const navigate = useNavigate()
-  const imgs = ["/src/assets/hero/hero-1.png", "/src/assets/hero/hero-2.png", "/src/assets/hero/hero-3.png"]
+  const imgs = [hero1, hero2, hero3]
   
   
   return (
