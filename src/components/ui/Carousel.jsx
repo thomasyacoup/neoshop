@@ -14,7 +14,7 @@ const CarouselImg = styled.img`
   height: 100%;
   object-fit: contain;
   opacity: ${props => (props.active ? "100%" : "0%")};
-  z-index: 100;
+  z-index: 80;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

@@ -15,7 +15,7 @@ const StyledDrawer = styled.aside`
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 99;
+  z-index: 100;
 
   @media (min-width: ${({ theme }) => theme.media.tablet}) {
     display: none;
